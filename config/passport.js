@@ -7,15 +7,16 @@ module.exports = function(passport) {
     passport.use(new VKontakteStrategy({
         clientID:     keys.clientID,
         clientSecret: keys.clientSecret,
-        callbackURL:  'https://powerful-crag-10911.herokuapp.com/auth/vkontakte/callback'
+        // callbackURL:  'https://powerful-crag-10911.herokuapp.com'
+        callbackURL:  '/auth/vkontakte/callback'
         // proxy: true
       },
       function(accessToken, refreshToken, params, profile, done) {
         // console.log(params.email); // getting the email
-        User.findOrCreate({ vkontakteId: profile.id }, function (err, user) {
-            console.log('find or create');
-          return done(err, user);
-        });
+        // User.findOrCreate({ vkontakteId: profile.id }, function (err, user) {
+        //     console.log('find or create');
+        //   return done(err, user);
+        // });
         console.log(accessToken);
         console.log('hey!');
         console.log(profile);
