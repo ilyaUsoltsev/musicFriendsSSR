@@ -1,0 +1,15 @@
+{
+  "name": "musicfriends",
+  "version": "1.0.0",
+  "description": "App for Musicians",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.5.12"
+  }
+}
