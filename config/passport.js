@@ -7,8 +7,7 @@ module.exports = function(passport) {
     passport.use(new VKontakteStrategy({
         clientID:     keys.clientID,
         clientSecret: keys.clientSecret,
-        // callbackURL:  'https://powerful-crag-10911.herokuapp.com'
-        callbackURL:  '/auth/vkontakte/callback'
+        callbackURL:  'https://powerful-crag-10911.herokuapp.com/auth/vkontakte/callback'
         // proxy: true
       },
       function(accessToken, refreshToken, params, profile, done) {
