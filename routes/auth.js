@@ -5,11 +5,9 @@ const router = express.Router();
 router.get('/vkontakte', passport.authenticate('vkontakte', {scope: ['profile', 'email']}));
 
 router.get('/vkontakte/callback',
-  passport.authenticate('vkontakte', { failureRedirect: '/login' }),
+  passport.authenticate('vkontakte', { failureRedirect: '/' }),
   function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/dashboard');
-    console.log('logged!');
+    res.redirect('/');
   });
 
 
