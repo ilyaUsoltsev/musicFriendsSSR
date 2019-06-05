@@ -1,0 +1,11 @@
+{{#if user}}
+<h3>Привет, {{user.first_name}}!</h3>
+{{else}}
+<h3>Привет Музыкант!</h3>
+{{/if}}
+<p>MusicFriends 1.0.0</p>
+<p>Ищи и находи коллег по цеху!</p>
+{{#if user}}
+{{else}}
+<a href="/auth/vkontakte" class="blue darken-1 btn"><i class="fab fa-vk left"></i>Зайти через ВК</a>
+{{/if}}
