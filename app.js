@@ -5,9 +5,13 @@ const keys = require('./config/keys');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const path = require('path');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 //require user model
 require('./models/User');
+require('./models/Post')
 
 //pass config
 require('./config/passport')(passport);
@@ -15,6 +19,16 @@ require('./config/passport')(passport);
 // load routes
 const auth = require('./routes/auth');
 const index = require('./routes/index');
+const posts = require('./routes/posts');
+
+// helpers
+const {
+    truncate,
+    stripTags,
+    formatDate,
+    select,
+    editBtn
+} = require('./helpers/hbs');
 
 //fixing a warning
 mongoose.Promise = global.Promise;
@@ -25,8 +39,22 @@ mongoose.connect(keys.mongoURI)
 
 const app = express();
 
+//body parser;
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+// method override
+app.use(methodOverride('_method'));
+
 //handlebars
 app.engine('handlebars', exphbs({
+    helpers: {
+        truncate,
+        stripTags,
+        formatDate,
+        select,
+        editBtn
+    },
     defaultLayout: 'main'
 }));
 app.set('view engine', 'handlebars');
@@ -48,9 +76,14 @@ app.use((req,res,next) => {
     next();
 });
 
+//set static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 //using routes
 app.use('/', index);
-app.use('/auth', auth)
+app.use('/auth', auth);
+app.use('/posts', posts);
+
 
 //port for dev and prod
 const port = process.env.PORT || 5000;

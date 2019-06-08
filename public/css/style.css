@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .story-text {
+    height: 100px;
+  }
+
+  #delete-form {
+    display: inline;
+  }
+
+  .logo-font {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .post-link:visited {
+    color: grey;
+  }
+
+  .mt-1 {
+    margin-top: 1rem;
+  }
+
+  .mt-2{ 
+    margin-top: 2rem;
+  }
+
+  .btn-270 {
+    width: 270px;
+  }
+
+  .card > .card-content {
+    padding:10px;
+    min-height: 130px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .row {
+      margin-bottom: 0;
+    }
+    .mt-1{
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }

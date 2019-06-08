@@ -1,0 +1,62 @@
+<div class="row">
+    <h5 class="center">{{post.title}}</h5>
+    <div class="col s12 m3">
+        <a href="https://vk.com/id{{post.user.vkontakteId}}" style="display:block">
+        <div class="card center-align">
+            <div class="card-content">
+                <span class="card-title">
+                    {{post.user.first_name}}
+                    {{post.user.last_name}}
+                </span>
+                <img src="{{post.user.photo}}" class="circle responsive-img">
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col s12 m9">
+        <div class="card story">
+            <div class="card-content">
+                <span class="card-title">
+                    {{formatDate post.date 'MMMM Do YYYY'}}
+                </span>
+                {{{post.description}}}
+            </div>
+            {{#if user}}
+            <div class="card-action">
+                {{{editBtn post.user.id user.id post.id}}}
+            </div>
+            {{/if}}
+        </div>
+        {{#if user}}
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">
+                    Добавить комментарий
+                </span>
+                    <form method="post" action="/posts/comments/{{post.id}}">
+                        <div class="input-field">
+                            <textarea name="commentBody" required class="materialize-textarea"></textarea>
+                            <label for="commentBody">...</label>
+                            <input type="submit" class="btn" value="Добавить">
+                        </div>
+                    </form>
+            </div>
+        </div>
+        {{/if}}
+        {{#each post.comments}}
+        <div class="card">
+            <div class="card-content">
+                <div class="chip">
+                        <img src={{commentUser.photo}} alt="">
+                        {{commentUser.first_name}} {{commentUser.last_name}}
+                </div>
+                <p>{{commentBody}}</p>
+                <br>
+                <small>{{formatDate commentDate 'MMMM Do YYYY'}}</small>
+
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    
+</div>

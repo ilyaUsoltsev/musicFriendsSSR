@@ -1,0 +1,49 @@
+<h1>Редактировать запись</h1>
+<div class="row">
+    <form action="/posts/{{post.id}}?_method=PUT" method="post" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <select name="type">
+                    {{#select post.type}}
+                    <option value="lookingForBand">Группу</option>
+                    <option value="lookingForMusician">Музыканта</option>
+                    {{/select}}
+                </select>
+                <label for="type">Что ищете?</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select name="instrument">
+                    {{#select post.instrument}}
+                    <option value="guitar" selected>Гитара</option>
+                    <option value="bass">Бас-гитара</option>
+                    <option value="drums">Барабаны</option>
+                    <option value="keys">Клавиши/DJ</option>
+                    <option value="voice">Голос</option>
+                    <option value="brass">Духовые</option>
+                    <option value="other">Другое</option>
+                    {{/select}}
+                </select>
+                <label for="instrument">Инструмент</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field" >
+                <input type="text" name="title" value="{{post.title}}" required>
+                <label for="title">Тема</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <h5>Описание</h5>
+                <textarea  required name="description" rows="5" class="materialize-textarea">
+                    {{post.description}}
+                </textarea>
+            </div>
+        </div>
+        <input type="submit" value="Сохранить" class="btn blue darken-1">
+    </form>
+</div>
+

@@ -1,11 +1,52 @@
+<div class="center">
 {{#if user}}
 <h3>Привет, {{user.first_name}}!</h3>
 {{else}}
-<h3>Привет Музыкант!</h3>
+<h3>Привет, Музыкант!</h3>
 {{/if}}
-<p>MusicFriends 1.0.0</p>
-<p>Ищи и находи коллег по цеху!</p>
+<p>“The only truth is music.” ― Jack Kerouac</p>
 {{#if user}}
 {{else}}
-<a href="/auth/vkontakte" class="blue darken-1 btn"><i class="fab fa-vk left"></i>Зайти через ВК</a>
+<a href="/auth/vkontakte" class="blue darken-3 btn"><i class="fab fa-vk left"></i>Зайти через ВК</a>
 {{/if}}
+</div>
+
+<div class="mt-1">
+    <div class="row">
+        <div class="col mt-1 s12 m6 center">
+            <a class="waves-effect blue waves-light btn-270 btn-large" href="/posts/filter/lookingForMusician/all/1">
+                Найти Группу
+            </a>
+        </div>
+        <div class="col mt-1 s12 m6 center">
+            <a class="waves-effect blue waves-light btn-270 btn-large" href="/posts/filter/lookingForBand/all/1">
+                Найти Музыканта
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-1 s12 m6 center">
+            <a class="waves-effect blue waves-light btn-270 btn-large">
+                Работа для Музыкантов
+            </a>
+        </div>
+        <div class="col mt-1 s12 m6 center">
+            <a class="waves-effect blue waves-light btn-270 btn-large">
+                Репбазы
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-1 s12 m6 center">
+            <a class="waves-effect blue waves-light btn-270 btn-large">
+                Уроки
+            </a>
+        </div>
+        <div class="col mt-1 s12 m6 center">
+            <a class="waves-effect blue waves-light btn-270 btn-large">
+                Контакты
+            </a>
+        </div>
+    </div>
+
+</div>

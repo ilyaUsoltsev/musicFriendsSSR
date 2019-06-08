@@ -1,7 +1,7 @@
-<nav class="blue darken-1">
+<nav class="blue">
     <div class="container">
         <div class="nav-wrapper">
-            <a href="/stories" class="brand-logo center">MusicFriends</a>
+            <a href="/" class="brand-logo center logo-font">MusicFriends</a>
             <a href="#" data-target="main-menu" class="button-collapse sidenav-trigger show-on-large"><i class="fas fa-bars"></i></a>
             <!-- RIGHT NAV -->
             <ul class="right hide-on-small-and-down">
@@ -25,14 +25,14 @@
             <a href="/auth/vkontakte" class="btn blue darken-1"><i class="fab fa-vk"></i>Вход через ВК</a>
         </li>
     {{/if}}
-    <li><a href="/stories"><i class="fa fa-book"></i>Найти Группу</a></li>
+    <li><a href="/posts"><i class="fas fa-search"></i>Найти</a></li>
     <li class="divider"></li>
-    <li><a href="/stories"><i class="fa fa-book"></i>Найти Музыканта</a></li>
-    <li class="divider"></li>
-    <li><a href="/stories"><i class="fa fa-book"></i>Репбазы</a></li>
-    <li class="divider"></li>
+    {{!-- <li><a href="/repbases"><i class="fas fa-building"></i>Репбазы</a></li>
+    <li class="divider"></li> --}}
     {{#if user}}
-        <li><a href="/dashboard"><i class="fa fa-cog"></i>Мой Профиль</a></li>
+        <li><a href="/posts/add"><i class="fa fa-plus"></i>Новая Запись</a></li>
+        <li class="divider"></li>
+        <li><a href="/profile"><i class="fas fa-user"></i>Мой Профиль</a></li>
         <li class="divider"></li>
     {{/if}}
 </ul>

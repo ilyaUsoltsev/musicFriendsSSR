@@ -1,0 +1,36 @@
+<h3>Это твой профиль, {{user.first_name}}.</h3>
+<h4>Сообщения</h4>
+{{#if posts}}
+    <table class="striped">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Дата</th>
+                <th>Редактировать/Удалить</th>
+            </tr>
+        </thead>
+        <tbody> 
+            {{#each posts}}
+            <tr>
+                <td >
+                    <a href="/posts/show/{{id}}">{{title}}</a>
+                </td>
+                <td>
+                    {{formatDate date 'MMMM Do YYYY'}}
+                </td>
+                <td>
+                    <a href="/posts/edit/{{id}}" class="btn green"><i class="far fa-edit"></i></a>
+                    <form  action="/posts/{{id}}?_method=DELETE" id="delete-form" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                        <button onclick="return confirm('Удалить?')" type="submit" class="btn red">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p>Пока сообщение нет</p>
+{{/if}}

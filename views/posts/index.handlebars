@@ -1,0 +1,104 @@
+<div class="row valign-wrapper">
+    <div class="col s12 m2">
+        {{#if user}}
+        <a href="/posts/add" class="btn blue darken-4"><i class="fa fa-plus"></i></a>
+        {{else}}
+        <a href="/posts/add"  disabled class="btn blue darken-4"><i class="fa fa-plus"></i></a>
+        {{/if}}
+    </div>
+    <div class="col s12 m8">
+        <h5 class="center">Результаты</h5>
+    </div>
+    <div class="col s12 m2">
+
+    </div>
+</div>
+
+<div class="row valign-wrapper">
+    <form method="get" id="filterForm" action="#">
+        <div class="col s12 m3">
+            <div class="input-field">
+            <select id="selectedInstrument" name="instrument">
+                {{#select instrument}}
+                <option value="all">Любой</option>
+                <option value="guitar">Гитара</option>
+                <option value="bass">Бас-гитара</option>
+                <option value="drums">Барабаны</option>
+                <option value="keys">Клавиши/DJ</option>
+                <option value="voice">Голос</option>
+                <option value="brass">Духовые</option>
+                <option value="other">Другое</option>
+                {{/select}}
+            </select>
+            <label for="instrument">Инструмент</label>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="input-field">
+                <select name="city" id="selectedCity">
+                    {{#select city}}
+                        {{#each cities}}
+                    <option value="{{id}}">{{title}}</option>                    
+                        {{/each}}
+                    {{/select}}
+                </select>
+                <label for="city">Город</label>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="input-field">
+                <select name="type" id="selectedType">
+                    {{#select type}}
+                    <option value="all">Всех</option>                    
+                    <option value="lookingForBand">Музыканта</option>
+                    <option value="lookingForMusician">Группу</option>
+                    {{/select}}
+                </select>
+                <label for="type">Кого ищете?</label>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <button type="button" onclick="onSubmit()" class="btn blue blue darken-4">И-щи</button>
+        </div>
+
+    </form>
+</div>
+<div class="row">
+    {{#each posts}}
+    <div class="col s12 m4">
+        <a class="post-link" style="display:block" href="/posts/show/{{id}}">
+        <div class="card">
+            <div class="card-content center-align">
+                <h6>{{truncate title 50}}</h6>
+                <div class="chip">
+                    <img src={{user.photo}} alt="">
+                    {{user.first_name}} {{user.last_name}}
+                </div>
+                <p>{{formatDate date 'DD/MM/YY'}}</p>
+            </div>
+        </div>
+        </a>
+    </div>
+
+    {{else}}
+    <div class="col s12">
+    <h5>Eще нет сообщений... <i class="far fa-sad-tear"></i></h5>
+    </div>
+    {{/each}}
+</div>
+
+<script>
+
+
+    function onSubmit(e) {
+        let instrument, type, city;
+        instrument = $("#selectedInstrument").val();
+        type = $("#selectedType").val();
+        city = $("#selectedCity").val();
+        city = parseInt(city);
+        console.log(city, type, instrument);
+        $('#filterForm').attr("action", `/posts/filter/${type}/${instrument}/${city}`);
+        $('#filterForm').submit();
+    }
+
+</script>

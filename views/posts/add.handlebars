@@ -1,0 +1,52 @@
+<h4>Добавить запись</h4>
+<div class="row">
+    <form action="/posts" method="post" class="col s12">
+        <div class="row">
+            <div class="input-field">
+                <select name="city">
+                    {{#each cities}}
+                        <option value="{{id}}">{{title}}</option>
+                    {{/each}}
+                </select>
+                <label for="city">Город</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select name="type">
+                    <option value="lookingForBand" selected>Группу</option>
+                    <option value="lookingForMusician">Музыканта</option>
+                </select>
+                <label for="type">Кого ищете?</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select  name="instrument">
+                    <option value="guitar" selected>Гитара</option>
+                    <option value="bass">Бас-гитара</option>
+                    <option value="drums">Барабаны</option>
+                    <option value="keys">Клавиши/DJ</option>
+                    <option value="voice">Голос</option>
+                    <option value="brass">Духовые</option>
+                    <option value="other">Другое</option>
+                </select>
+                <label for="instrument">Инструмент</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" name="title" maxlength="100" required>
+                <label for="title">Тема</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <h5>Описание</h5>
+                <textarea  required name="description" rows="5" class="materialize-textarea"></textarea>
+            </div>
+        </div>
+        <input type="submit" value="Добавить" class="btn blue darken-1">
+    </form>
+</div>
+
