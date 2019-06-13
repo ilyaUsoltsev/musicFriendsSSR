@@ -1,11 +1,10 @@
-<h3>Это твой профиль, {{user.first_name}}.</h3>
-<h4>Сообщения</h4>
+<h5>Это твой профиль, {{user.first_name}}.</h5>
+<h6>Сообщения</h6>
 {{#if posts}}
     <table class="striped">
         <thead>
             <tr>
                 <th>Название</th>
-                <th>Дата</th>
                 <th>Редактировать/Удалить</th>
             </tr>
         </thead>
@@ -14,9 +13,6 @@
             <tr>
                 <td >
                     <a href="/posts/show/{{id}}">{{title}}</a>
-                </td>
-                <td>
-                    {{formatDate date 'MMMM Do YYYY'}}
                 </td>
                 <td>
                     <a href="/posts/edit/{{id}}" class="btn green"><i class="far fa-edit"></i></a>
