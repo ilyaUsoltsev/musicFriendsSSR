@@ -13,10 +13,6 @@ router.get('/vkontakte/callback',
 
   });
 
-// router.get('/verify', (req, res) => {
-//   console.log(req.user);
-// });
-
 router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
